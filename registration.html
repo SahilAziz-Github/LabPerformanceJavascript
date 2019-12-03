@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	
+	<script type="text/javascript">
+	function first(){
+	alert("Hello");
+}
+	function second(){
+	var na=document.fm.name.value; //document=DOM object
+	if(na.length<5){
+		document.fm.name.style.color="red";
+		//document.fm.uName.style.border="1px solid red";
+		document.getElementById("msg").innerHTML="invalid name";
+	}
+	else{
+		document.fm.name.style.color="black";
+		document.getElementById("msg").innerHTML="valid name";
+	}
+	//alert(un);
+}
+function third(){
+	var em=document.fm.email.value; //document=DOM object
+	if(em.indexOf("@")<1){
+		document.fm.email.style.color="red";
+		//document.fm.uName.style.border="1px solid red";
+		document.getElementById("msgone").innerHTML="invalid email";
+	}
+	else{
+		document.fm.email.style.color="black";
+		document.getElementById("msgone").innerHTML="valid email";
+	}
+
+
+
+	//alert(un);
+}
+function fourth(){
+	var un=document.fm.userName.value; //document=DOM object
+	if(un.length<5){
+		document.fm.userName.style.color="red";
+		//document.fm.uName.style.border="1px solid red";
+		document.getElementById("msgsecond").innerHTML="invalid username";
+	}
+	else{
+		document.fm.userName.style.color="black";
+		document.getElementById("msgsecond").innerHTML="valid username";
+	}
+
+
+
+	//alert(un);
+}
+function fifth(){
+	var ps=document.fm.password.value; //document=DOM object
+	if(ps.length==0){
+		document.fm.password.style.color="red";
+		//document.fm.uName.style.border="1px solid red";
+		document.getElementById("msgthird").innerHTML="invalid pass";
+	}
+	else{
+		document.fm.password.style.color="black";
+		document.getElementById("msgthird").innerHTML="valid pass";
+	}
+
+
+
+	//alert(un);
+}
+function six(){
+	var cp=document.fm.confirmPassword.value; //document=DOM object
+	if(cp.length==0){
+		document.fm.confirmPassword.style.color="red";
+		//document.fm.uName.style.border="1px solid red";
+		document.getElementById("msgfourth").innerHTML="invalid pass match";
+	}
+	else if(cp.length==ps.length){
+		document.fm.confirmPassword.style.color="black";
+		document.getElementById("msgfourth").innerHTML="valid pass match";
+	}
+
+
+
+	//alert(un);
+}
+
+
+function validate(){
+	var flag=true;
+	var cname=document.fm.cname.value;
+	var number=document.fm.number.value;
+	var email=document.fm.email.value;
+	var pass=document.fm.pass.value;
+	var conpass=document.fm.conpass.value;
+
+	var str="";
+	if(cname.length==0){
+		flag=false;
+		str="must type user name";
+	}
+	else if(number.length==0){
+		flag=false;
+		str="must type number";
+	}
+	else if(email.indexOf("@")<1){
+		flag=false;
+		str="invalid email";
+	}
+	else if(pass.length==0){
+		flag=false;
+		str="must type skill";
+	}
+	else if(conpass.length==0){
+		flag=false;
+		str="must type conpass";
+	}
+	
+	
+	else if(email.indexOf("@")<1){
+		flag=false;
+		str="invalid email";
+	}
+	document.getElementById("msgx").innerHTML=str;
+	return flag;
+}
+
+
+
+
+</script>
+	
+
+	
+
+
+
+
+
+
+
+
+
+<fieldset>
+    <legend><b>REGISTRATION</b></legend>
+	 <form id="fm"  method="post" name="fm">
+		<br/>
+		<table width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>Name</td>
+				<td>:</td>
+				<td>  <input onkeyup="second()" name="name" type="text" id="txt"><span id="msg"></span><br/>    </td>
+				<td></td>
+			</tr>		
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td>
+					<input onkeyup="third()" name="email" type="text" id="txt"><span id="msgone"></span><br/>
+					<abbr title="hint: sample@example.com"><b>i</b></abbr>
+				</td>
+				<td></td>
+			</tr>		
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
+				<td>User Name</td>
+				<td>:</td>
+				<td><input onkeyup="fourth()" name="userName" type="text" id="txt"><span id="msgsecond"></span><br/>
+   </td>
+				<td></td>
+			</tr>		
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td> <input onkeyup="fifth()" name="password" type="text" id="txt"><span id="msgthird"></span><br/>
+	</td>
+				<td></td>
+			</tr>		
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td>:</td>
+				<td> <input onkeyup="six()" name="confirmPassword" type="text" id="txt"><span id="msgfourth"></span><br/></td>
+				<td></td>
+			</tr>		
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
+				<td colspan="3">
+					<fieldset>
+						<legend>Gender</legend>    
+						<input name="gender" type="radio">Male
+						<input name="gender" type="radio">Female
+						<input name="gender" type="radio">Other
+					</fieldset>
+				</td>
+				<td></td>
+			</tr>		
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
+				<td colspan="3">
+					<fieldset>
+						<legend>Date of Birth</legend>    
+						<input type="text" size="2" />/
+						<input type="text" size="2" />/
+						<input type="text" size="4" />
+						<font size="2"><i>(dd/mm/yyyy)</i></font>
+					</fieldset>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+		<hr/>
+		<input type="submit" value="Submit">
+		<input type="reset">
+	</form>
+</fieldset>
